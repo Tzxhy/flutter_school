@@ -1,0 +1,35 @@
+name: Dart CI
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    container:
+      image:  cirrusci/flutter
+
+    steps:
+    - uses: actions/checkout@master
+    
+    - name: build   
+      uses: subosito/flutter-action@v1
+      with:
+        channel: 'stable'
+
+    - name: Install dependencies
+      run: flutter packages pub get
+    - run: flutter channel master
+    - run: flutter build apk
+    - uses: softprops/action-gh-release@v1
+      with:
+        files: build/app/outputs/apk/release/app-release.apk
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    
