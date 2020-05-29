@@ -7,8 +7,12 @@ import 'components/page/page_item.dart';
 import 'package:flutter_school/pages/temp/provider.dart' as TEMP;
 import 'package:flutter_school/framework/state/squash.dart' as SQUASH;
 import 'package:flutter_school/framework/state/example.dart' as SQUASH_EXAMPLE;
+import 'package:flutter_school/pages/state_manage/bloc/app.dart' as BLOC;
+import 'package:flutter_school/pages/state_manage/provider/provider.dart' as Provider;
+import 'package:flutter_school/pages/state_manage/redux/redux.dart' as Redux;
 // void main() => runApp(TEMP.MyApp());
-void main() => runApp(SQUASH_EXAMPLE.MyApp());
+// void main() => runApp(SQUASH_EXAMPLE.MyApp());
+void main() => runApp(MyApp());
 
 
 Widget setState(_) => const SignInPageNavigation();
@@ -41,38 +45,60 @@ const List<PageItemData> optimizationPageList = [
   ),
 ];
 
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'flutter学习',
-//       theme: ThemeData(
-//         primarySwatch: Colors.blue,
-//       ),
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text('flutter学习'),
-//         ),
-//         body: SingleChildScrollView(
-//           physics: const BouncingScrollPhysics(),
-//           child: Column(
-//             children: [
-//               const PageItemGroup(
-//                 title: '数据更新',
-//                 itemList: statePageList,
-//               ),
-//               const PageItemGroup(
-//                 title: '优化相关',
-//                 itemList: optimizationPageList,
-//               ),
-//               const PageItemGroup(
-//                 title: '底层相关',
-//                 itemList: lowerList,
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+Widget blocManege(_) => const BLOC.MyBLoCApp();
+Widget providerManege(_) => const Provider.MyApp();
+Widget reduxManege(_) => const Redux.MyApp();
+const List<PageItemData> stateManegePageList = [
+  const PageItemData(
+    title: 'BLoC',
+    pageBuilder: blocManege,
+  ),
+  const PageItemData(
+    title: 'Provider',
+    pageBuilder: providerManege,
+  ),
+  const PageItemData(
+    title: 'Redux',
+    pageBuilder: reduxManege,
+  ),
+];
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'flutter学习',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('flutter学习'),
+        ),
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: Column(
+            children: [
+              const PageItemGroup(
+                title: '数据更新',
+                itemList: statePageList,
+              ),
+              const PageItemGroup(
+                title: '优化相关',
+                itemList: optimizationPageList,
+              ),
+              const PageItemGroup(
+                title: '底层相关',
+                itemList: lowerList,
+              ),
+              const PageItemGroup(
+                title: '状态管理',
+                itemList: stateManegePageList,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

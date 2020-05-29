@@ -22,6 +22,20 @@ packages:
       url: "http://dart-pub.byted.org"
     source: hosted
     version: "2.4.0"
+  battery:
+    dependency: "direct main"
+    description:
+      name: battery
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "0.3.1+7"
+  bloc:
+    dependency: "direct main"
+    description:
+      name: bloc
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "3.0.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -69,6 +83,20 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_bloc:
+    dependency: "direct main"
+    description:
+      name: flutter_bloc
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "3.0.0-dev.1"
+  flutter_redux:
+    dependency: "direct main"
+    description:
+      name: flutter_redux
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "0.6.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -130,6 +158,20 @@ packages:
       url: "http://dart-pub.byted.org"
     source: hosted
     version: "2.0.5"
+  redux:
+    dependency: "direct main"
+    description:
+      name: redux
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "4.0.0"
+  rxdart:
+    dependency: transitive
+    description:
+      name: rxdart
+      url: "http://dart-pub.byted.org"
+    source: hosted
+    version: "0.23.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -199,4 +241,5 @@ packages:
     source: hosted
     version: "3.5.0"
 sdks:
-  dart: ">=2.4.0 <3.0.0"
+  dart: ">=2.6.0 <3.0.0"
+  flutter: ">=1.10.0 <2.0.0"

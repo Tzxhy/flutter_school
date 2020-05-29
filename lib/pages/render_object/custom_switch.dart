@@ -154,11 +154,11 @@ class _RenderCustomCupertinoSwitch extends RenderConstrainedBox {
       curve: Curves.linear,
     )..addListener(markNeedsPaint)
      ..addStatusListener(_handlePositionStateChanged);
-    _reactionController = AnimationController( // 整体状态进度
+    _reactionController = AnimationController(
       duration: _kReactionDuration,
       vsync: vsync,
     );
-    _reaction = CurvedAnimation(
+    _reaction = CurvedAnimation( // 整体状态进度，用于控制拖动块大小等状态
       parent: _reactionController,
       curve: Curves.ease,
     )..addListener(markNeedsPaint);
